@@ -1,4 +1,4 @@
-let randomNumber = Math.floor(Math.random() * 100) + 1;
+/*let randomNumber = Math.floor(Math.random() * 100) + 1;
       const guesses = document.querySelector('.guesses');
       const lastResult = document.querySelector('.lastResult');
       const lowOrHi = document.querySelector('.lowOrHi');
@@ -67,3 +67,40 @@ let randomNumber = Math.floor(Math.random() * 100) + 1;
         lastResult.style.backgroundColor = 'white';
         randomNumber = Math.floor(Math.random() * 100) + 1;
       }
+*/
+      // uuus koodi 
+import {StartGame, checkGuess, resetGame} from './guess';
+
+StartGame();
+
+// TODO: Develop better algorithm
+
+const testGamePlay = () => {
+  let guessCounter = 0;
+  let myGuess = 50;
+  let gameOver = false;
+  while(!gameOver) {
+    let correctGuess = checkGuess(myGuess);
+    guessCounter++;
+    if (correctGuess === 0) {
+      gameOver = true;
+      resetGame();
+    } else if (correctGuess < 0){
+      myGuess++;
+    } else {
+      myGuess--;
+    }
+  }
+  return guessCounter;
+};
+
+testGamePlay();
+
+let guessCounts = [];
+for(let i=0; i<1000; i++) {
+  guessCounts.push(testGamePlay());
+}
+console.log('guess counts', guessCounts);
+
+let maxGuessCount = Math.max(...guessCounts);
+console.log(maxGuessCount);

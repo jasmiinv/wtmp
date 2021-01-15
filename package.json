@@ -25,5 +25,9 @@
     "webpack-merge": "^5.7.3",
     "write-file-webpack-plugin": "^4.5.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "bootstrap": "^4.5.3",
+    "export": "^0.1.337",
+    "node": "^15.4.0"
+  }
 }
