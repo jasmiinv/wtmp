@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+body{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	background-color: white;
+	font-family: 'Roboto', sans-serif;
+}
+
+.container {  /*nav*/
+display: flex; 
+align-items: flex-end;
+margin-left: -4.1em;
+justify-content: space-around;
+}
+.search{
+	margin-bottom: 0.45em;
+}
+
+.container li { 
+list-style-type: none; 
+display: inline-block;
+font-size: 3em;
+color: #940E3f; 
+
+}
+.container li:hover {
+  background-color: #ddd;
+  color: black;
+  cursor: pointer;
+}
+.container li:active {
+	background-color: darkgrey;
+}
+input {
+    background-image: url("img/haku.jpg");
+    background-position: 10px center;
+    background-repeat: no-repeat;
+	-webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+
+    padding: 10px 5px 10px 20px;
+    text-indent: 20px;
+
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 2s;
+    transition: all 0.2s;
+
+    width: 200px;
+}
+
+.kuvabar
+{	
+	display: flex;
+	align-items: center;
+	height: 13em;
+	width: 200%;
+
+	
+}
+#kuva
+{
+	background-image: url("img/paistinpannu.jpg");
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: 25%;
+	background-size: 35.5% 230%;
+	width:200%;
+	
+}
+.polygon {
+  float: left;
+  shape-outside: polygon(0 0, 0 300px, 200px 300px);
+  clip-path: polygon(0 0, 0 300px, 200px 300px);
+  height: 13em;
+  width: 15em;
+  background: linear-gradient(to top right,#65FF71, #6afd76);
+  
+}
+.inset {
+  float: left;
+  shape-outside: inset(0px);
+  clip-path: inset(0px);
+  width: 40em;
+  height: 13em;
+  background-color: #65FF71;
+
+  
+}
+.teksti{
+/*clear: both;*/
+display: flex;
+flex-direction: column;
+flex-wrap: nowrap;
+align-items: center;
+color: #343a40;
+  font-size:2em;
+  text-align:center;
+  background-color: #65FF71;
+  margin-top: 1em;
+  
+}
+h1{
+	margin: unset;
+}
+p1{
+	margin: unset;
+}
+p2{
+	color: #343a40;
+	font-size: 1.5em;
+	text-align: center;
+}
+.teksti2{
+	width: 80em;
+	padding: 1em 10%;
+	display: flex;
+	align-items: center;
+}
+#boksi1
+{
+
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	box-sizing: content-box;  
+	width: 42em;
+	height: 15em;  
+	border: 5px groove grey;
+	background-color: white;
+	overflow: hidden;
+
+}
+.ruokalista1 li{
+
+	width: 25em;
+	margin-left: -1.4em;
+	font-size: 1em;
+	color: #343a40;;
+ }
+
+.svg_div1{
+display: flex;
+justify-content: space-evenly;
+}
+
+.svg_div1 h2{
+	
+	text-align: left;
+	margin-top: 0.1em;
+	margin-bottom: -0.5em;
+	font-size: 2em;
+	color: #24252A;
+}
+.location_box{
+	display: flex;
+}
+.logo-sodexo{
+
+	width: 30%;
+	height: 50%;
+	background-image: url("img/Sodexo_logo.jpg");
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+
+}
+
+
+#boksi2
+{
+	margin-left: 3em;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	box-sizing: content-box;  
+	width: 42em;
+	height: 15em;  
+	border: 5px groove grey;
+	background-color: white;
+	overflow: hidden;
+	
+}
+.ruokalista2 li{
+	width: 25em;
+	margin-left: -1.4em;
+	font-size: 1em;
+	color: #24252A;
+}
+.boksit
+{
+	display: flex;
+	flex-direction: row;
+	margin-right: 3em;
+	justify-content: space-evenly;  
+	
+}
+svg {
+	width: 3em;
+	height: 3em;
+  }
+svg:hover {
+	fill: blue;
+  }
+#napit{
+
+margin-left:5em;
+margin-top: 1em;
+  }
+@media all and (max-width: 600px) {  
+    
+  .container {  
+	margin-left: -2em;
+	flex-direction: column;
+	align-items: flex-start;
+  }  
+    
+  .container li {  
+	flex-basis: 50%;  
+  }
+  .inset
+  {
+	  width: 12em;
+	  height: 100%;
+  }
+  .teksti {
+	  font-size: 1.8em;
+	  margin-left: 0.5em;
+  }
+  .teksti2 {
+	margin-left: -3.4em;
+	 display: inline;
+  }
+  .teksti2 p2{
+	  font-size: 1.3em;
+	  margin: 0;
+	  padding: 0;
+	  
+  }
+
+
+
+}
+

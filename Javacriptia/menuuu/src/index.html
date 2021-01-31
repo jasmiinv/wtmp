@@ -1,0 +1,100 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<title>Hassut sivut</title>
+  	<link rel="stylesheet" href="assets/css/styles.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<meta charset="UTF-8">
+</head>
+<body>
+<script src="index.js"></script>
+
+<nav>  
+  <ul class="container">  
+    <li><a href="index.html"></a>Etusivu</li>  
+    <li><a href="sivu2.html"></a>Ruokalistat</li> 
+	<li><a href="#"></a>Ravintolat</li>
+	<li><a href="#"></a>Yhteystiedot</li> 
+	
+    <a class="search">  
+      <input type="text" class="search-input" placeholder="Etsi Ravintola"/>  
+    </a>  
+  </ul>  
+</nav>
+
+
+<div class="kuvabar" id="kuva">
+	<div class="inset">
+		<div class= "teksti">
+		<h1>Lounari.</h1><p1>
+		Mitä tänään syötäisiin?</p1>
+		</div>
+	</div>
+	<div class="polygon">
+	</div>
+</div>
+
+	<div class= "teksti2">
+	<p2>
+	Missä tänään syötäisiin? Tuttu tarina ennen luonashetkeä. Palvelu etsii lähelläsi olevat lounaspaikat,sekä näyttää niiden päivittäisen lounaslistan. Viikottaiset lounaslistat ovat myös käytettävissäsi. Pääset niihin klikkaamalla ravintolalogoa.</p2>
+	</div>
+
+<div class = "boksit">
+
+	<div id = "boksi1">
+
+	<div class = "logo-sodexo">
+			
+		</div>
+	<div class = "ruokalista1">
+
+			<div class = "svg_div1">
+				<h2>Sodexo</h2>
+				<div class = "location_box">
+										<svg>
+				 <use xlink:href="#location" />
+				 
+										</svg>
+				<p3>100m</p3>
+				</div>
+			</div>
+    			<ul id="sodexo">
+    			</ul>
+			</div>
+	</div>
+
+  
+	<div id = "boksi2">
+		<div class = "ruokalista2">
+    		<h2>Fazer</h2>
+
+    		<ul id="fazer">
+			</ul>
+		</div>
+		<div id = "svg_div2">
+			<svg>
+			<use xlink:href="#location" />
+		  </svg>
+	  </div>
+</div>
+	
+</div> 
+<div id = "napit">
+ 		<button id="switch-lang">Switch lang</button>
+  		<button id="sort-menu">Sort menu</button>
+  		<button id="pick-dish">Pick a dish</button>
+	</div>
+
+<svg display="none">
+	<symbol width="40" height="40" viewBox="0 0 48 60" id="location">
+		<path d="M14,18c0,5.51,4.49,10,10,10s10-4.49,10-10S29.51,8,24,8S14,12.49,14,18z M32,18c0,4.41-3.59,8-8,8s-8-3.59-8-8s3.59-8,8-8   S32,13.59,32,18z"></path>
+		<path d="M9,18c0,7.98,13.63,25.85,14.21,26.61C23.4,44.85,23.69,45,24,45s0.6-0.15,0.79-0.39C25.37,43.85,39,25.98,39,18   c0-8.27-6.73-15-15-15S9,9.73,9,18z M37,18c0,6.27-10.06,20.36-13,24.33C21.06,38.36,11,24.27,11,18c0-7.17,5.83-13,13-13   S37,10.83,37,18z"></path>
+	</symbol>
+
+</svg>
+
+
+</body>
+
+</html>
+
