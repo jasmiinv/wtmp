@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # WTMP Starter
 
 Simple boilerplate for [Webpack](https://webpack.js.org/guides/getting-started) powered web development exercises.
@@ -20,3 +21,6 @@ npm start
 # (Config: webpack.common.js + webpack.prod.js)
 npm run build
 ```
+=======
+https://github.com/jasmiinv/javascript.git
+>>>>>>> c228304469cb0f96493686f0209c42f08ce2d355
