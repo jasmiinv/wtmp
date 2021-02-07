@@ -1,33 +1,49 @@
-import FazerLunchMenuEn from '../assets/fazer-week-example-en.json';
-import FazerLunchMenu from '../assets/fazer-week-example.json';
-
 /**
- * Parses a menu for a day from Fazer weekly json data
+ * Functions for managing Fazer menu data
  *
- * @param {*} menuData - json data
- * @param {*} dayOfWeek - index number of the day (0: Monday)
- * @returns {Array} - meals for a day
  */
-const parseDailyMenu = (menuData, dayOfWeek) => {
-  // console.log('raw fazer menu data', menuData.LunchMenus[dayOfWeek]);
-  let dailyMenu = menuData.LunchMenus[dayOfWeek].SetMenus.map(setMenu => {
-    let mealName = setMenu.Name;
-    // Go through meals and pick dish names and diets
-    let dishes = setMenu.Meals.map(dish => `${dish.Name} (${dish.Diets.join(', ')})`);
-    // Convert dishes array to string separated by commas
-    dishes = dishes.join(', ');
-    // Use meal name it it exists
-    return mealName ? `${mealName}: ${dishes}` : dishes;
-  });
-  return dailyMenu;
-};
-// Usage
-let coursesFi = parseDailyMenu(FazerLunchMenu, 0);
-// console.log('parsed fazer menu', coursesFi);
-let coursesEn = parseDailyMenu(FazerLunchMenuEn, 0);;
 
-const getParsedMenu = (lang = 'fi') => {
-  return (lang == 'fi') ? coursesFi : coursesEn;
-};
-
-export {getParsedMenu as getParsedMenuFazer};
+ // TODO: Fix hard coded date, note that Karaportti is closed for now
+ const weeklyUrlFi = 'https://www.fazerfoodco.fi/api/restaurant/menu/week?language=fi&restaurantPageId=270540&weekDate=2020-01-14';
+ const weeklyUrlEn = 'https://www.fazerfoodco.fi/api/restaurant/menu/week?language=en&restaurantPageId=270540&weekDate=2020-01-14';
+ 
+ /**
+  * Returns a daily menu array from Fazer weekly json data
+  * @param {Object} menuData
+  * @param {Number} dayOfWeek week day 0-6
+  * @returns {Array} daily menu
+  */
+ const parseDailyMenu = (menuData, dayOfWeek) => {
+ 
+   let dailyMenu = menuData.LunchMenus[dayOfWeek].SetMenus.map(setMenu => {
+     // console.log(setMenu);
+     let mealName = setMenu.Name;
+     let dishes = setMenu.Meals.map(dish => {
+       return `${dish.Name} (${dish.Diets.join(', ')})`;
+     });
+     return mealName ? `${mealName}: ${dishes.join(', ')}` : dishes.join(', ');
+   });
+   return dailyMenu;
+ };
+ 
+ /**
+  * TODO: design & implent multilang support (and update this comment)
+  * @param {*} menuData
+  * @param {*} lang
+  * @param {*} dayOfWeek
+  */
+ const getDailyMenu = (menuData, lang, dayOfWeek = 1) => {
+   // Fazer's index for Monday is 0, in JS it is 1
+   dayOfWeek -= 1;
+   if (dayOfWeek === -1) {
+     dayOfWeek = 0;
+   }
+   console.log('parsing weekday #', dayOfWeek);
+   return parseDailyMenu(menuData, dayOfWeek);
+ };
+ 
+ // console.log('debug fasu', getDailyMenu('fi'));
+ 
+ const FazerData = {getDailyMenu, weeklyUrlFi, weeklyUrlEn};
+ 
+ export default FazerData;

@@ -1,6 +1,8 @@
 import SodexoData from './modules/sodexo-data';
 import {getParsedMenuFazer} from './modules/fazer-data';
 
+import {fetchGetJson} from './modules/network';
+
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
