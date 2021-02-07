@@ -11,6 +11,8 @@ if ('serviceWorker' in navigator) {
     });
   });
 }
+
+
 let lang = 'fi';
 
 /**

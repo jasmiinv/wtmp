@@ -4,6 +4,7 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const WriteFilePlugin = require('write-file-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
+const WebpackPwaManifest = require('webpack-pwa-manifest');
 
 module.exports = {
   entry: {
@@ -12,15 +13,12 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new WriteFilePlugin(),
-    new CopyPlugin({
-      patterns: [
-      {
-        from: 'assets/',
-        to: 'assets/',
-        context: 'src/',
-      },
-    ]}),
-
+    new WorkboxPlugin.GenerateSW({
+      // these options encourage the ServiceWorkers to get in there fast
+      // and not allow any straggling "old" SWs to hang around
+      clientsClaim: true,
+      skipWaiting: true,
+    }),
     new WebpackPwaManifest({
       name: 'Lunch Progressive Web App',
       short_name: 'LunchPWA',
@@ -35,13 +33,14 @@ module.exports = {
       ]
     }),
 
-    
-      new WorkboxPlugin.GenerateSW({
-        // these options encourage the ServiceWorkers to get in there fast
-        // and not allow any straggling "old" SWs to hang around
-        clientsClaim: true,
-        skipWaiting: true,
-      }),
+    new CopyPlugin({
+      patterns: [
+      {
+        from: 'assets/',
+        to: 'assets/',
+        context: 'src/',
+      },
+    ]}),
    
     new HtmlWebpackPlugin({
       title: 'WTMP Starter',
